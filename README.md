@@ -10,14 +10,14 @@ This is a project created for [DePaul SE452](http://www.cdm.depaul.edu/academics
 
 | Member | Area  |
 | ----------- | ----------- 
-| Louis | Inventory Management |
+| Malachi | User Recommendations |
 
 
 
 <br/>
 
 ## Conflict Resolution
-There are currently three members of group 2 so in case a major conflict holds us up and needs to be resolved, a majority in favor of an option will be how we resolve the conflict.
+There are currently four members of group 2 so in case a major conflict holds us up and needs to be resolved, a discussion followed by majority in favor of an option will be how we resolve the conflict.
 
 <br/>
 
