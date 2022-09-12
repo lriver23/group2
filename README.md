@@ -11,7 +11,7 @@ This is a project created for [DePaul SE452](http://www.cdm.depaul.edu/academics
 | Member | Area  |
 | ----------- | ----------- 
 | Louis | Inventory Management |
-
+| Shoeb | User Authentication |
 
 
 <br/>
