@@ -11,11 +11,8 @@ This is a project created for [DePaul SE452](http://www.cdm.depaul.edu/academics
 | Member | Area  |
 | ----------- | ----------- 
 | Louis | Inventory Management |
-<<<<<<< HEAD
 | Majid | Order Placement |
-=======
 | Shoeb | User Authentication |
->>>>>>> main
 
 
 <br/>
