@@ -34,4 +34,8 @@ We are using WhatsApp for communication currently. Some of our members are in th
 | 2 | Code  | Lombok | Type it out manually | Lombok is a good time saver that saves you from having to type out large amounts of boilerplate code.
 | 3 | Dependency Management  | Gradle | Maven | build.gradle files are more compact and easier to write than pom.xml files.
 | 4 | Configuration Management  | Yaml | Properties | Easier to view groups of configuration
+| 5 | Version Control  | Git / Github | SVN, Bitbucket | Github has an easy to use GUI and everyone in the group already has a github profile setup.
 
+
+## Repo Link
+https://github.com/lriver23/group2
