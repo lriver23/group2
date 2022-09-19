@@ -1,0 +1,5 @@
+environment: production
+
+logging:
+    level:
+        root: ERROR
