@@ -5,33 +5,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Products")
-public class Product {
+@Table(name = "Sellers")
+public class Seller {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private long id;
 
-    @OneToOne
-    @Column(name = "Seller")
-    private Seller seller;
-
     @Column(name = "Name")
     private String name;
 
-    @Column(name = "Description")
-    private String description;
-
-    @Column(name = "Price")
-    private double price;
-    
-
+    @Column(name = "Income")
+    private double income;
 }
