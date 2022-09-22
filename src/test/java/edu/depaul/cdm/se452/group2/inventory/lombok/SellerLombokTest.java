@@ -7,7 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import edu.depaul.cdm.se452.group2.inventory.Seller;
 
 @Log4j2
-public class SellerTest {
+public class SellerLombokTest {
     @Test
     public void testLombokFunctions() {
         var seller = new Seller();
