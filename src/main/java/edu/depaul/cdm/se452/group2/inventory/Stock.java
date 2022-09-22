@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -19,7 +18,6 @@ public class Stock {
     @Column(name = "Id")
     private long id;
 
-    @OneToOne
     @Column(name = "Product")
     private Product product;
 
