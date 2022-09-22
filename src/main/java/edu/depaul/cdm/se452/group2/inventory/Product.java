@@ -19,9 +19,6 @@ public class Product {
     @Column(name = "Id")
     private long id;
 
-    @Column(name = "Seller")
-    private Seller seller;
-
     @Column(name = "Name")
     private String name;
 

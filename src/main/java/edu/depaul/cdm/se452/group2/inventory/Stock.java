@@ -18,9 +18,6 @@ public class Stock {
     @Column(name = "Id")
     private long id;
 
-    @Column(name = "Product")
-    private Product product;
-
     @Column(name = "QuantityAvailable")
     private int quantityAvailable;
 }
