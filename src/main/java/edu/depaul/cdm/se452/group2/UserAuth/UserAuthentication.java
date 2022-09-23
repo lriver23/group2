@@ -12,19 +12,18 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "UserInfo")
-public class UserInfo {
+//@Table(name = "UserAuthentication")
+public class UserAuthentication {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "UserName")
+    //@Column(name = "UserName")
     private String u_name;
-
-
-    @Column(name = "Password")
+    
+    //@Column(name = "Password")
     private String pwd;
 
-    @Column(name = "Email")
+    //@Column(name = "Email")
     private String email;
     
 
