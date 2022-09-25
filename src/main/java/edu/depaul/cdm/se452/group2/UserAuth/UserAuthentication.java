@@ -6,23 +6,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "UserAuthentication")
+@Table(name = "User_Authentication")
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserAuthentication {
     
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name = "UserName")
+    @Column(name = "User_Name")
     private String u_name;
     
-    //@Column(name = "Password")
+    @Column(name = "Password")
     private String pwd;
 
-    //@Column(name = "Email")
+    @Column(name = "Email")
     private String email;
     
 
