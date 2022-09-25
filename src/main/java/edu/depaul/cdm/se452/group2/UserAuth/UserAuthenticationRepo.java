@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2.userAuth;
+package edu.depaul.cdm.se452.group2.UserAuth;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

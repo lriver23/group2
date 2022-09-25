@@ -1,5 +1,4 @@
-package edu.depaul.cdm.se452.group2.userAuth;
-
+package edu.depaul.cdm.se452.group2.UserAuth;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,11 +11,11 @@ import lombok.Data;
 
 @Data
 @Entity
-//@Table(name = "UserAuthentication")
+@Table(name = "UserAuthentication")
 public class UserAuthentication {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(name = "UserName")
     private String u_name;
     
