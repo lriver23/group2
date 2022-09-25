@@ -44,7 +44,6 @@ public class SellerService {
     @ApiResponse(responseCode = "200", description = "valid respons",
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=Seller.class))})
     public List<Seller> getAllSellers() {
-
         log.traceEntry("Enter getAllSellers");
         var foundSellers = repo.findAll();
         log.traceExit("Exit getAllSellers", foundSellers);
@@ -75,11 +74,11 @@ public class SellerService {
     @ApiResponse(responseCode = "200", description = "valid response",
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=Seller.class))})
     public ResponseEntity<String> putSeller(@Valid @RequestBody Seller seller) {
-        log.traceEntry("Enter postSeller");
+        log.traceEntry("Enter putSeller");
 
         if(repo.findById(seller.getId()).isPresent()) {
             saveSeller(seller);
-            log.traceExit("Exit postSeller", seller);
+            log.traceExit("Exit putSeller", seller);
             return ResponseEntity.ok("Seller updated");
         }
         else {

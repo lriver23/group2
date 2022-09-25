@@ -42,7 +42,6 @@ public class ProductService {
     @ApiResponse(responseCode = "200", description = "valid respons",
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=Product.class))})
     public List<Product> getAllProducts() {
-
         log.traceEntry("Enter getAllProducts");
         var foundProducts = repo.findAll();
         log.traceExit("Exit getAllProducts", foundProducts);
@@ -73,7 +72,7 @@ public class ProductService {
     @ApiResponse(responseCode = "200", description = "valid response",
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=Product.class))})
     public ResponseEntity<String> putProduct(@Valid @RequestBody Product product) {
-        log.traceEntry("Enter postProduct");
+        log.traceEntry("Enter putProduct");
 
         if(repo.findById(product.getId()).isPresent()) {
             saveProduct(product);
@@ -81,7 +80,7 @@ public class ProductService {
             return ResponseEntity.ok("Product updated");
         }
         else {
-            log.traceExit("Exit postProduct", product);
+            log.traceExit("Exit putProduct", product);
             return ResponseEntity.badRequest().build();
         }
     }
