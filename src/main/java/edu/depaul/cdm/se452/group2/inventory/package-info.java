@@ -25,4 +25,15 @@ package edu.depaul.cdm.se452.group2.inventory;
  * Setup the database configuration so that the database is launched when the spring application is started.
  * 
  * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * ------- Nices to Have -------
+ * 
+ * - Add in validation for each of the entity objects' fields
+ * - Change API calls so they return JSON responses instead of strings
+ * - Add tests to test out each of the API routes
  */
