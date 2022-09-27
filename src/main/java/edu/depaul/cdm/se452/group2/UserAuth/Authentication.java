@@ -1,31 +1,30 @@
-package edu.depaul.cdm.se452.group2.inventory;
-
+package edu.depaul.cdm.se452.group2.userAuth;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "Sellers")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Seller {
+@Table(name = "Authentication")
+public class Authentication {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
-    private long id;
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "User_Name")
+    private String u_name;
+    
+    @Column(name = "Password")
+    private String pwd;
 
-    @Column(name = "Name")
-    private String name;
+    @Column(name = "Email")
+    private String email;
 
-    @Column(name = "Income")
-    private double income;
 }

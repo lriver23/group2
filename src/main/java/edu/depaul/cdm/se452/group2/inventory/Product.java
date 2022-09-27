@@ -7,11 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name = "Products")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     
     @Id
@@ -28,5 +32,4 @@ public class Product {
     @Column(name = "Price")
     private double price;
     
-
 }
