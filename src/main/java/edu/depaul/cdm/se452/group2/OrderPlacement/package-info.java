@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2.OrderPlacement;
+package edu.depaul.cdm.se452.group2.orderPlacement;
 
 /*
  * @author Abdul Majid
