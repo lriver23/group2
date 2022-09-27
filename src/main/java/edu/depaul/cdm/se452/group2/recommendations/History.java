@@ -20,11 +20,14 @@ public class History {
   
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "Search")
-   private String Search;
+   @Column(name = "Id")
+   private long id;
+
+   @Column(name = "SearchHistory")
+   private String SearchHistory;
  
-   @Column(name = "ItemList")
-   private String ItemList;
+   @Column(name = "Item")
+   private String Item;
   
  
 }
