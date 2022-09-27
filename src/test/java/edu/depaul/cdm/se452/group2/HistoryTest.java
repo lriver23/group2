@@ -11,7 +11,7 @@ public class HistoryTest {
     @Test
     public void testLombokFunctions() {
         var history = new History();
-        history.setSearch("shampoo");
+        history.setSearchHistory("shampoo");
         history.setItem("Tea Tree Special Shampoo");
         log.info("Product toString: " + history.toString());
 
