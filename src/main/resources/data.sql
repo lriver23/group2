@@ -1,3 +1,4 @@
+
 -- Inventory Package
 
 INSERT INTO Products (Name, Description, Price) VALUES ('Deck of Cards', 'A deck of 52 playing cards.', 5.15)
@@ -9,3 +10,9 @@ INSERT INTO Products (Name, Description, Price) VALUES ('Carpenters Bench', 'A b
 
 INSERT INTO Sellers (Name, Income) VALUES ('Dice and Games Industires', 6000000)
 INSERT INTO Sellers (Name, Income) VALUES ('World Wide Tools', 85)
+
+insert into Authentication(user_name, email, password) values ('lll', 'smk@gmail.com','123');
+insert into Authentication(user_name, email, password) values ('mm', 'mm@gmail.com','345');
+insert into AuthorizationU(user_name, is_premium, is_seller) values ('hi', 'TRUE','TRUE');
+insert into AuthorizationU(user_name, is_premium, is_seller) values ('jo', 'TRUE','TRUE');
+
