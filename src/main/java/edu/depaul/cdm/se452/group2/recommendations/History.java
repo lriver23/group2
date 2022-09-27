@@ -23,8 +23,8 @@ public class History {
    @Column(name = "Id")
    private long id;
 
-   @Column(name = "Search")
-   private String search;
+   @Column(name = "SearchHistory")
+   private String searchHistory;
  
    @Column(name = "Item")
    private String item;
