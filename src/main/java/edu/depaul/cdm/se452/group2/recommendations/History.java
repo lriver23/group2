@@ -24,10 +24,10 @@ public class History {
    private long id;
 
    @Column(name = "SearchHistory")
-   private String SearchHistory;
+   private String searchHistory;
  
    @Column(name = "Item")
-   private String Item;
+   private String item;
   
  
 }
