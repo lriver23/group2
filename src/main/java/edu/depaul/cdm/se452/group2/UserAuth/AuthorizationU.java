@@ -13,16 +13,19 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Authorization")
-public class Authorization {
+@Table(name = "AuthorizationU")
+public class AuthorizationU {
+    
     //link using primary and secondry keys
     @Id
-    @Column(name = "Name")
+    @Column(name = "User_Name")
     private String u_name;
     
-    @Column(name = "Premium")
-    private String is_premium;
+    @Column(name = "Is_Premium")
+    private boolean is_premium;
 
-    @Column(name = "    Seller")
-    private String is_seller;
+    @Column(name = "Is_Seller")
+    private boolean is_seller;
+
+
 }
