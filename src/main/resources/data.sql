@@ -18,7 +18,6 @@ insert into Authentication(user_name, email, password) values ('mm', 'mm@gmail.c
 insert into AuthorizationU(user_name, is_premium, is_seller) values ('hi', 'TRUE','TRUE');
 insert into AuthorizationU(user_name, is_premium, is_seller) values ('jo', 'TRUE','TRUE');
 
-insert into History(search_history, item) values
-    ('teddy bear', 'build a bear buddy'),
-    ('diet soda', 'diet coke'),
-    ('toilet paper', 'ultra soft toilet paper rolls');
+insert into History(search_history, item) values('teddy bear', 'build a bear buddy');
+insert into History(search_history, item) values('diet soda', 'diet coke');
+insert into History(search_history, item) values('toilet paper', 'ultra soft toilet paper rolls');
