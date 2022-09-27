@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2.OrderPlacement;
+package edu.depaul.cdm.se452.group2.orderPlacement;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,23 +8,26 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "Orders")
 public class Orders {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "OrderId")
+    @Column(name = "Order_ID")
     private long Order_id;
 
-    @OneToOne
-    @Column(name = "CartNumber")
-    private Cart Cart_number;
+    @Column(name = "Cart_ID")
+    private long Cart_Id;
 
-    @Column(name = "UserId")
+    @Column(name = "User_ID")
     private String User_id;
 
 }
