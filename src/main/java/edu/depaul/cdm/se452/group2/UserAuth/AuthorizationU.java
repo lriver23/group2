@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2.UserAuth;
+package edu.depaul.cdm.se452.group2.userAuth;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
