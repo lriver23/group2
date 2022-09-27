@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import edu.depaul.cdm.se452.group2.userAuth.Authentication;
-import edu.depaul.cdm.se452.group2.userAuth.AuthenticationRepo;
+import edu.depaul.cdm.se452.group2.UserAuth.Authentication;
+import edu.depaul.cdm.se452.group2.UserAuth.AuthenticationRepo;
 import lombok.val;
 
 @SpringBootTest
