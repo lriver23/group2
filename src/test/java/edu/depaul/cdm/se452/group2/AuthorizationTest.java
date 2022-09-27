@@ -1,5 +1,4 @@
 package edu.depaul.cdm.se452.group2;
-import edu.depaul.cdm.se452.group2.UserAuth.Authorization;
 import edu.depaul.cdm.se452.group2.UserAuth.AuthorizationRepo;
 import edu.depaul.cdm.se452.group2.UserAuth.AuthorizationU;
 
