@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import edu.depaul.cdm.se452.group2.orderPlacement.Orders;
-import edu.depaul.cdm.se452.group2.orderPlacement.OrdersRepository;
+import edu.depaul.cdm.se452.group2.OrderPlacement.Orders;
+import edu.depaul.cdm.se452.group2.OrderPlacement.OrdersRepository;
 import lombok.val;
 
 @SpringBootTest
@@ -19,8 +19,8 @@ public class OrdersTest {
 
     @Test
     public void testOrders() {
-        val majid = new Orders(555, 111, "majid");
-        val shoeb = new Orders(666, 222, "shoeb");
+        val majid = new Orders(5, 111, "majid");
+        val shoeb = new Orders(6, 222, "shoeb");
 
         val b4 = ORR.count();
         System.out.println(b4);
