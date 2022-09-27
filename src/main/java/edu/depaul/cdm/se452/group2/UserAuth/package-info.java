@@ -19,7 +19,8 @@ package edu.depaul.cdm.se452.group2.UserAuth;
  * 9/22/2022
  * I added data.sql file to store sql scripts and tested if insert statements are working and tables are set-up properly.
  * 
- * 9/24/2022
- * I setup the database configuration so that the database is launched when the spring application is started.
+ * 9/26/2022
+ * I added Tests for both the Authentication and Authoriztion tables
+ * 
  * 
  */
