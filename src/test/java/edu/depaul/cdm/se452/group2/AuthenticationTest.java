@@ -6,20 +6,19 @@ import java.time.LocalTime;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import edu.depaul.cdm.se452.group2.UserAuth.UserAuthentication;
-import edu.depaul.cdm.se452.group2.UserAuth.UserAuthenticationRepo;
+import edu.depaul.cdm.se452.group2.UserAuth.Authentication;
+import edu.depaul.cdm.se452.group2.UserAuth.AuthenticationRepo;
 import lombok.val;
 
 @SpringBootTest
-public class UserAuthenticationTest {
+public class AuthenticationTest {
     @Autowired
-    private  UserAuthenticationRepo AUR;
+    private  AuthenticationRepo AUR;
     
     @Test
-    public void testUserAuthentication() {
-        val shoeb = new UserAuthentication("Majidd", "emaill", "pwdxfrr");
-        val majid = new UserAuthentication("DAL", "Dallas", "TX");
+    public void testAuthentication() {
+        val shoeb = new Authentication("Majidd", "emaill", "pwdxfrr");
+        val majid = new Authentication("DAL", "Dallas", "TX");
         
         val b4 = AUR.count();
         AUR.save(shoeb);

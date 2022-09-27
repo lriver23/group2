@@ -5,17 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "User_Authentication")
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserAuthentication {
+@Table(name = "Authentication")
+public class Authentication {
     
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +26,5 @@ public class UserAuthentication {
 
     @Column(name = "Email")
     private String email;
-    
 
 }

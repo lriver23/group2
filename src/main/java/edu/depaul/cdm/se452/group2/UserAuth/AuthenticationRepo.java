@@ -2,6 +2,6 @@ package edu.depaul.cdm.se452.group2.UserAuth;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserAuthenticationRepo extends JpaRepository<UserAuthentication, Long> {
+public interface AuthenticationRepo extends JpaRepository<Authentication, Long> {
     
 }
