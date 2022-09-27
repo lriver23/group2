@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2.orderPlacement;
+package edu.depaul.cdm.se452.group2.OrderPlacement;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

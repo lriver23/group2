@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2.orderPlacement;
+package edu.depaul.cdm.se452.group2.OrderPlacement;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
