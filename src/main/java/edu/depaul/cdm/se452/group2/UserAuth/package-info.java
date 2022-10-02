@@ -21,6 +21,6 @@ package edu.depaul.cdm.se452.group2.UserAuth;
  * 
  * 9/26/2022
  * I added Tests for both the Authentication and Authoriztion tables
- * 
+ * For extra features I added NoArgConstructors and AllArgConstructors as extra features.
  * 
  */
