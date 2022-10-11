@@ -28,15 +28,13 @@ package edu.depaul.cdm.se452.group2.inventory;
  * 
  * 
  * 
- * 
- * 
- * 
  * ------- Nices to Have -------
  * 
  * - Add in validation for each of the entity objects' fields
  * - Change API calls so they return JSON responses instead of strings
- * - Add tests to test out each of the API routes
+ * - Add tests for each of the API routes
+ * - Add tests for the new relationships between the objects 
  * - Seperate out the database logic from the API logic so that they're in different classes
- * - Change the SQL file so that it links some of these objects
+ * - 
  * 
  */
