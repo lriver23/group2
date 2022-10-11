@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -31,5 +34,13 @@ public class Product {
 
     @Column(name = "Price")
     private double price;
+
+    @ManyToOne
+    @JoinColumn(name = "Seller_Id")
+    private Seller seller;
+    
+    @OneToOne
+    @JoinColumn(name = "Stock_Id")
+    private Stock stock;
     
 }
