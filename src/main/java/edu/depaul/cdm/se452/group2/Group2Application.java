@@ -6,10 +6,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import edu.depaul.cdm.se452.group2.UserAuth.Address;
-import edu.depaul.cdm.se452.group2.UserAuth.AddressRepository;
-import edu.depaul.cdm.se452.group2.UserAuth.Authentication;
-import edu.depaul.cdm.se452.group2.UserAuth.AuthenticationRepo;
+import edu.depaul.cdm.se452.group2.UserAuth.entities.Address;
+import edu.depaul.cdm.se452.group2.UserAuth.entities.Authentication;
+import edu.depaul.cdm.se452.group2.UserAuth.repos.AddressRepository;
+import edu.depaul.cdm.se452.group2.UserAuth.repos.AuthenticationRepo;
 import lombok.var;
 import lombok.extern.log4j.Log4j2;
 

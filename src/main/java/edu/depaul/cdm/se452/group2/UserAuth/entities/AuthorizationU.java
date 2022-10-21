@@ -1,9 +1,11 @@
-package edu.depaul.cdm.se452.group2.UserAuth;
+package edu.depaul.cdm.se452.group2.UserAuth.entities;
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
@@ -21,16 +23,26 @@ import lombok.NoArgsConstructor;
 public class AuthorizationU implements Serializable{
     
     //link using primary and secondry keys
-    @Id  
-    private String u_name;
 
-    @MapsId
-    @OneToOne
-    @JoinColumn(name = "User_Name")
-    private Authentication user; 
+    // @MapsId
+    // @OneToOne
+    // @JoinColumn(name = "User_Name")
+    // private Authentication user; 
     
-    // @Column(name = "User_Name")
-    // private String u_name;
+    // @Id
+    // @MapsId
+    // @JoinColumn(name = "User_Name")
+    
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
+    private long id;
+
+
+
+    @OneToOne
+    private Authentication u_name;
     
     @Column(name = "Is_Premium")
     private boolean is_premium;

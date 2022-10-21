@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2.UserAuth;
+package edu.depaul.cdm.se452.group2.UserAuth.entities;
 
 
 import javax.persistence.Column;

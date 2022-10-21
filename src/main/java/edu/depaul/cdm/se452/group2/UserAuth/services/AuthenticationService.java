@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2.UserAuth;
+package edu.depaul.cdm.se452.group2.UserAuth.services;
 
 import java.util.List;
 
@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.depaul.cdm.se452.group2.UserAuth.entities.Authentication;
+import edu.depaul.cdm.se452.group2.UserAuth.entities.AuthorizationU;
+import edu.depaul.cdm.se452.group2.UserAuth.repos.AuthenticationRepo;
+import edu.depaul.cdm.se452.group2.UserAuth.repos.AuthorizationRepo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -37,18 +41,21 @@ import lombok.extern.log4j.Log4j2;
 @AllArgsConstructor
 @NoArgsConstructor
 @RestController
-@RequestMapping("/api/authorization")
-@Tag(name = "AuthorizationU",description = "Allows manipulation of Authorization Data")
+@RequestMapping("/api/authentication")
+@Tag(name = "Authentication",description = "Allows manipulation of Authentication Data")
 @Log4j2
-public class AuthorizationService {
+public class AuthenticationService {
     @Autowired
-    private AuthorizationRepo repo;
+    private AuthenticationRepo repo;
+
+    @Autowired
+    private AuthorizationRepo authorizationRepo;
     
     @GetMapping
-    @Operation(summary = "Returns all the Authorization data")
+    @Operation(summary = "Returns all the Auth data")
     @ApiResponse(responseCode = "200", description = "valid response", 
-        content = {@Content(mediaType="application/json", schema=@Schema(implementation=AuthorizationU.class))})
-    public List<AuthorizationU> list() {
+        content = {@Content(mediaType="application/json", schema=@Schema(implementation=Authentication.class))})
+    public List<Authentication> list() {
         log.traceEntry("Enter List");
         var retval = repo.findAll();
         log.traceEntry("Exit List");
@@ -56,19 +63,21 @@ public class AuthorizationService {
     }
     @PostMapping()
     @Operation(summary = "Add new user information")
-    @ApiResponse(responseCode = "200", description = "valid response",
-    content = {@Content(mediaType="application/json", schema=@Schema(implementation=AuthorizationU.class))})
-    public void save(@RequestBody AuthorizationU authorizationU){
+    public void save(@RequestBody Authentication authentication){
         log.traceEntry("enter save");
+        repo.save(authentication);
 
-        repo.save(authorizationU);
+        var aU = new AuthorizationU();
+        aU.setU_name(authentication);
+        aU.set_seller(false);
+        aU.set_premium(false);
+        authorizationRepo.save(aU);
+
         log.traceEntry("exit save");
     }
 
+    @Operation(summary = "Delete user information")
     @DeleteMapping("{user}")
-    @Operation(summary = "Delete user Authorization information")
-    @ApiResponse(responseCode = "200", description = "valid response",
-    content = {@Content(mediaType="application/json", schema=@Schema(implementation=AuthorizationU.class))})
     public void delete(@PathVariable("user") String user) {
         log.traceEntry("Enter delete", user);
         repo.deleteById(user);
@@ -78,8 +87,8 @@ public class AuthorizationService {
     @PutMapping
     @Operation(summary = "Update user information")
     @ApiResponse(responseCode = "200", description = "valid response",
-    content = {@Content(mediaType="application/json", schema=@Schema(implementation=AuthorizationU.class))})
-    public ResponseEntity<String> put(@Valid @RequestBody AuthorizationU user) {
+    content = {@Content(mediaType="application/json", schema=@Schema(implementation=Authentication.class))})
+    public ResponseEntity<String> put(@Valid @RequestBody Authentication user) {
         log.traceEntry("Enter put", user);
         if(repo.findById(user.getU_name()).isPresent()){
             repo.save(user);
@@ -91,13 +100,13 @@ public class AuthorizationService {
         
     }
 
-    // @PostMapping("/validated")
-    // @Operation(summary = "Save the User and returns the User id")
-    // public ResponseEntity<String> validatedSave(@Valid @RequestBody Authentication authentication) {
-    //     log.traceEntry("enter save", authentication);
-    //     repo.save(authentication);
-    //     log.traceExit("exit save", authentication);
-    //     return ResponseEntity.ok("new id is " + authentication.getU_name());
-    // }
+    @PostMapping("/validated")
+    @Operation(summary = "Save the User and returns the User id")
+    public ResponseEntity<String> validatedSave(@Valid @RequestBody Authentication authentication) {
+        log.traceEntry("enter save", authentication);
+        repo.save(authentication);
+        log.traceExit("exit save", authentication);
+        return ResponseEntity.ok("new id is " + authentication.getU_name());
+    }
     
 }
