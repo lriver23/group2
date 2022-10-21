@@ -37,18 +37,18 @@ import lombok.extern.log4j.Log4j2;
 @AllArgsConstructor
 @NoArgsConstructor
 @RestController
-@RequestMapping("/api/authentication")
-@Tag(name = "Authentication",description = "Allows manipulation of Authentication Data")
+@RequestMapping("/api/authorization")
+@Tag(name = "AuthorizationU",description = "Allows manipulation of Authorization Data")
 @Log4j2
-public class AuthenticationService {
+public class AuthorizationService {
     @Autowired
-    private AuthenticationRepo repo;
+    private AuthorizationRepo repo;
     
     @GetMapping
-    @Operation(summary = "Returns all the Auth data")
+    @Operation(summary = "Returns all the Authorization data")
     @ApiResponse(responseCode = "200", description = "valid response", 
-        content = {@Content(mediaType="application/json", schema=@Schema(implementation=Authentication.class))})
-    public List<Authentication> list() {
+        content = {@Content(mediaType="application/json", schema=@Schema(implementation=AuthorizationU.class))})
+    public List<AuthorizationU> list() {
         log.traceEntry("Enter List");
         var retval = repo.findAll();
         log.traceEntry("Exit List");
@@ -56,14 +56,19 @@ public class AuthenticationService {
     }
     @PostMapping()
     @Operation(summary = "Add new user information")
-    public void save(@RequestBody Authentication authentication){
+    @ApiResponse(responseCode = "200", description = "valid response",
+    content = {@Content(mediaType="application/json", schema=@Schema(implementation=AuthorizationU.class))})
+    public void save(@RequestBody AuthorizationU authorizationU){
         log.traceEntry("enter save");
-        repo.save(authentication);
+
+        repo.save(authorizationU);
         log.traceEntry("exit save");
     }
 
-    @Operation(summary = "Delete user information")
     @DeleteMapping("{user}")
+    @Operation(summary = "Delete user Authorization information")
+    @ApiResponse(responseCode = "200", description = "valid response",
+    content = {@Content(mediaType="application/json", schema=@Schema(implementation=AuthorizationU.class))})
     public void delete(@PathVariable("user") String user) {
         log.traceEntry("Enter delete", user);
         repo.deleteById(user);
@@ -73,8 +78,8 @@ public class AuthenticationService {
     @PutMapping
     @Operation(summary = "Update user information")
     @ApiResponse(responseCode = "200", description = "valid response",
-    content = {@Content(mediaType="application/json", schema=@Schema(implementation=Authentication.class))})
-    public ResponseEntity<String> put(@Valid @RequestBody Authentication user) {
+    content = {@Content(mediaType="application/json", schema=@Schema(implementation=AuthorizationU.class))})
+    public ResponseEntity<String> put(@Valid @RequestBody AuthorizationU user) {
         log.traceEntry("Enter put", user);
         if(repo.findById(user.getU_name()).isPresent()){
             repo.save(user);
