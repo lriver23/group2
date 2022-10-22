@@ -30,5 +30,8 @@ public class Login{
     @OneToOne
     private Authentication u_name;
 
+    @Column(name = "Is_login")
+    private boolean isLoggedIn;
+
 
 }
