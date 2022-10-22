@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.depaul.cdm.se452.group2.UserAuth.entities.Authentication;
 import edu.depaul.cdm.se452.group2.UserAuth.entities.AuthorizationU;
+import edu.depaul.cdm.se452.group2.UserAuth.entities.Login;
 import edu.depaul.cdm.se452.group2.UserAuth.repos.AuthenticationRepo;
 import edu.depaul.cdm.se452.group2.UserAuth.repos.AuthorizationRepo;
+import edu.depaul.cdm.se452.group2.UserAuth.repos.LoginRepo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -50,6 +52,9 @@ public class AuthenticationService {
 
     @Autowired
     private AuthorizationRepo authorizationRepo;
+
+    @Autowired
+    private LoginRepo loginRepo;
     
     @GetMapping
     @Operation(summary = "Returns all the Auth data")
@@ -72,6 +77,11 @@ public class AuthenticationService {
         aU.set_seller(false);
         aU.set_premium(false);
         authorizationRepo.save(aU);
+
+        var lg = new Login();
+        lg.setU_name(authentication);
+        lg.setLoggedIn(false);
+        loginRepo.save(lg);
 
         log.traceEntry("exit save");
     }

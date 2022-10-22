@@ -70,15 +70,16 @@ public class LoginService {
     @Operation(summary = "Login new user")
     @ApiResponse(responseCode = "200", description = "valid response",
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=Login.class))})
-    public void save(@RequestBody String user){
+    public void save(@RequestBody Login user){
         
         log.traceEntry("enter save");  
-        // var au = new Authentication();
-        // au = authenticationRepo.getReferenceById(user);
-        
-        Login login = new Login();
-        login.setU_name(authenticationRepo.getReferenceById(user));
-        repo.save(login);
+        if(repo.findById(user.getActive_user_id()).isPresent()){
+            user.setLoggedIn(true);
+            repo.save(user);
+            log.info("user logged in");
+            //return ResponseEntity.ok("new id is " + user.getU_name());
+        }
+        else log.info("user not found");
         log.traceEntry("exit save");
     }
 
