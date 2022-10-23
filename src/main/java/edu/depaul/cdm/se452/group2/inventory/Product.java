@@ -48,7 +48,6 @@ public class Product {
     
     @OneToOne
     @JoinColumn(name = "Stock_Id")
-    @NotNull
     private Stock stock;
     
 }

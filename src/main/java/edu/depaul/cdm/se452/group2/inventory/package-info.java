@@ -4,9 +4,11 @@ package edu.depaul.cdm.se452.group2.inventory;
  * @author Louis Rivera
  * 
  * ******* Additional Features *******
- * Used additional validation constraints like NotNull and Positive in Product.
+ * Used additional validation constraints like NotNull and Positive in Product.java.
  * 
- * 
+ * Create service response classes like ProductServiceResponse that services can use to construct JSON responses.
+ * This helps the client render the response correctly since non-JSON strings are not easily
+ * handled by the client.
  * 
  * 
  * ******* Progress *******
@@ -39,15 +41,18 @@ package edu.depaul.cdm.se452.group2.inventory;
  * one another had to be changed and the following tag had to be added to some of the classes:
  * @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "Id")
  * 
+ * Added validation tags to the data entities.
  * 
+ * Figured out that Posting through swagger UI isn't working. Will have to setup postman to see if it's just
+ * swagger or if it's the way post is constructed.
  * 
- * ------- Nices to Have -------
+ * ------- Nice to Have / To Do List -------
  * 
- * - Add in validation for each of the entity objects' fields
  * - Change API calls so they return JSON responses instead of strings
  * - Add tests for each of the API routes
  * - Add tests for the new relationships between the objects 
  * - Seperate out the database logic from the API logic so that they're in different classes
- * - 
- * 
+ * - Fix posting. Right now, trying to post through swagger-ui isn't working.
+ * - Switch to No-SQL instead of SQL.
+ * - Setup Docker.
  */

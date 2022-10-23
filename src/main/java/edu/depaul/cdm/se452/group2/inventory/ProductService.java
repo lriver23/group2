@@ -77,7 +77,7 @@ public class ProductService {
         if(repo.findById(product.getId()).isPresent()) {
             saveProduct(product);
             log.traceExit("Exit postProduct", product);
-            return ResponseEntity.ok("Product updated");
+            return ResponseEntity.ok(ProductServiceResponse.constructSuccessWithProduct(product));
         }
         else {
             log.traceExit("Exit putProduct", product);
@@ -89,10 +89,19 @@ public class ProductService {
     @Operation(summary = "Deletes a product when given its Id")
     @ApiResponse(responseCode = "200", description = "valid response",
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=Product.class))})
-    public void deleteProduct(long id) {
+    public ResponseEntity<String> deleteProduct(long id) {
         log.traceEntry("Enter deleteProduct", id);
-        repo.deleteById(id);
-        log.traceExit("Exit deleteProduct");
+
+
+        if(repo.findById(id).isPresent()) {
+            repo.deleteById(id);
+            log.traceExit("Exit deleteProduct");
+            return ResponseEntity.ok(ProductServiceResponse.constructDefaultSuccess());
+        }
+        else {
+            log.traceExit("Exit deleteProduct");
+            return ResponseEntity.badRequest().body(ProductServiceResponse.constructErrorNoProductExists(id));
+        }
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
