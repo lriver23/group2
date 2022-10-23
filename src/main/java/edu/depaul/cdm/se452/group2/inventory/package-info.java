@@ -24,7 +24,12 @@ package edu.depaul.cdm.se452.group2.inventory;
  * 
  * Setup the database configuration so that the database is launched when the spring application is started.
  * 
- * 
+ * ------- Milestone 3 -------
+ * Create service calls so that inventory related items can be manipulated externally.
+ * Setup relationships betweeen inventory items. There were issues with some of the foriegn key objects were setup
+ * that was causing infinite creation of objects. The structure of the how the inventory items relate to
+ * one another had to be changed and the following tag had to be added to some of the classes:
+ * @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "Id")
  * 
  * 
  * 
