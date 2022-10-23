@@ -6,9 +6,8 @@ package edu.depaul.cdm.se452.group2.inventory;
  * ******* Additional Features *******
  * Used additional validation constraints like NotNull and Positive in Product.java.
  * 
- * Create service response classes like ProductServiceResponse that services can use to construct JSON responses.
- * This helps the client render the response correctly since non-JSON strings are not easily
- * handled by the client.
+ * Create service response classes like ProductServiceResponse.java that services can use to construct JSON responses.
+ * This helps the client render the response correctly since non-JSON strings are not easilyhandled by the client.
  * 
  * 
  * ******* Progress *******
