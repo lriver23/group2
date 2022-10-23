@@ -7,8 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import edu.depaul.cdm.se452.group2.UserAuth.Authentication;
-import edu.depaul.cdm.se452.group2.UserAuth.AuthenticationRepo;
+import edu.depaul.cdm.se452.group2.UserAuth.entities.Address;
+import edu.depaul.cdm.se452.group2.UserAuth.entities.Authentication;
+import edu.depaul.cdm.se452.group2.UserAuth.repos.AuthenticationRepo;
 import lombok.val;
 
 @SpringBootTest
@@ -18,8 +19,11 @@ public class AuthenticationTest {
     
     @Test
     public void testAuthentication() {
-        val shoeb = new Authentication("Majidd", "emaill", "pwdxfrr");
-        val majid = new Authentication("DAL", "Dallas", "TX");
+        Address smkAddress = new Address();
+        smkAddress.setLocation("Hyderabad");
+
+        val shoeb = new Authentication("Majidd", "emaill", "pwdxfrr", smkAddress);
+        val majid = new Authentication("DAL", "Dallas", "TX", smkAddress);
         
         val b4 = AUR.count();
         AUR.save(shoeb);

@@ -1,11 +1,15 @@
-package edu.depaul.cdm.se452.group2.OrderPlacement;
+package edu.depaul.cdm.se452.group2.UserAuth.entities;
+import java.util.Optional;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,17 +19,19 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Cart")
-public class Cart {
+@Table(name = "Login")
+public class Login{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Cart_ID")
-    private long Cart_id;
+    @Column(name = "Active_user_Id")
+    private long active_user_id;
 
-    @Column(name = "Product_Quantity")
-    private long Product_quantity;
+    @OneToOne
+    private Authentication u_name;
 
-    @Column(name = "Order_ID")
-    private long Order_id;
+    @Column(name = "Is_login")
+    private boolean isLoggedIn;
+
+
 }
