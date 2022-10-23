@@ -81,7 +81,7 @@ public class ProductService {
         }
         else {
             log.traceExit("Exit putProduct", product);
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body(ProductServiceResponse.constructErrorNoProductExists(product.getId()));
         }
     }
 

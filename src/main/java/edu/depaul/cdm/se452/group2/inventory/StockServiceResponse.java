@@ -2,27 +2,26 @@ package edu.depaul.cdm.se452.group2.inventory;
 
 import net.minidev.json.JSONObject;
 
-public class ProductServiceResponse {
-    
+public class StockServiceResponse {
+
     public static String constructDefaultSuccess() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.appendField("status", "success");
         return jsonObject.toJSONString();
     }
 
-    public static String constructSuccessWithProduct(Product product) {
+    public static String constructSuccessWithStock(Stock stock) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.appendField("status", "success");
-        jsonObject.appendField("product", product);
+        jsonObject.appendField("stock", stock);
         return jsonObject.toJSONString();
     }
 
-    public static String constructErrorNoProductExists(long id) {
+    public static String constructErrorNoStockExists(long id) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.appendField("status", "error");
-        jsonObject.appendField("productId", id);
-        jsonObject.appendField("message", "no product with id found");
+        jsonObject.appendField("stockId", id);
+        jsonObject.appendField("message", "no stock with id found");
         return jsonObject.toJSONString();
     }
-
 }
