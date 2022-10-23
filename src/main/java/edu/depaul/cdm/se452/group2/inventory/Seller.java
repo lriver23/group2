@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -33,6 +34,7 @@ public class Seller {
     private long id;
 
     @Column(name = "Name")
+    @Size(min = 3, max = 150, message = "Name must be between 3 and 150 characters long")
     private String name;
 
     @Column(name = "Income")

@@ -3,6 +3,14 @@ package edu.depaul.cdm.se452.group2.inventory;
 /*
  * @author Louis Rivera
  * 
+ * ******* Additional Features *******
+ * Used additional validation constraints like NotNull and Positive in Product.
+ * 
+ * 
+ * 
+ * 
+ * ******* Progress *******
+ * 
  * ------- Milestone 1 -------
  * 
  * 9/11/2022
