@@ -21,7 +21,12 @@ package edu.depaul.cdm.se452.group2.OrderPlacement;
  * are working and tables are set-up properly.
  * 
  * 9/26/2022
- * I added Tests for both the Carts and Orders tables and added NoArgConstructors and AllArgConstructors and Extra Features.
+ * I added Tests for both the Carts and Orders tables and added
+ * NoArgConstructors and AllArgConstructors and Extra Features.
  * 
+ * * ------- Milestone 3 -------
  * 
+ * 10/24/2022
+ * I added Services for both Carts and Orders and added OnetoOne, JoinCloumn
+ * feature.
  */
