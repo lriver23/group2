@@ -42,6 +42,7 @@ public class AuthorizationU implements Serializable{
 
 
     @OneToOne
+    @JoinColumn(name = "User_Name")
     private Authentication u_name;
     
     @Column(name = "Is_Premium")
