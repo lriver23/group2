@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -24,8 +25,9 @@ public class Orders {
     @Column(name = "Order_ID")
     private long Order_id;
 
-    @Column(name = "Cart_ID")
-    private long Cart_Id;
+    @OneToOne
+    @JoinColumn(name = "Cart_ID")
+    private Cart Cart_Id;
 
     @Column(name = "User_ID")
     private String User_id;
