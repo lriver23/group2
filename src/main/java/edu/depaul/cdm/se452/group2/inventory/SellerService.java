@@ -79,11 +79,11 @@ public class SellerService {
         if(repo.findById(seller.getId()).isPresent()) {
             saveSeller(seller);
             log.traceExit("Exit putSeller", seller);
-            return ResponseEntity.ok("Seller updated");
+            return ResponseEntity.ok(SellerServiceResponse.constructSuccessWithSeller(seller));
         }
         else {
             log.traceExit("Exit postSeller", seller);
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body(SellerServiceResponse.constructErrorNoSellerExists(seller.getId()));
         }
     }
 
@@ -91,10 +91,18 @@ public class SellerService {
     @Operation(summary = "Deletes a seller when given its Id")
     @ApiResponse(responseCode = "200", description = "valid response",
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=Seller.class))})
-    public void deleteSeller(long id) {
+    public ResponseEntity<String> deleteSeller(long id) {
         log.traceEntry("Enter deleteSeller", id);
-        repo.deleteById(id);
-        log.traceExit("Exit deleteSeller");
+
+        if(repo.findById(id).isPresent()) {
+            repo.deleteById(id);
+            log.traceExit("Exit deleteSeller");
+            return ResponseEntity.ok(SellerServiceResponse.constructDefaultSuccess());
+        }
+        else {
+            log.traceExit("Exit deleteSeller");
+            return ResponseEntity.badRequest().body(SellerServiceResponse.constructErrorNoSellerExists(id));
+        }
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
