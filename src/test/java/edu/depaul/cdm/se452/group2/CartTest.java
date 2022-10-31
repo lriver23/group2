@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import edu.depaul.cdm.se452.group2.OrderPlacement.Cart;
-import edu.depaul.cdm.se452.group2.OrderPlacement.CartRepository;
+import edu.depaul.cdm.se452.group2.OrderPlacement.entities.Cart;
+import edu.depaul.cdm.se452.group2.OrderPlacement.repos.CartRepository;
 
 @SpringBootTest
 public class CartTest {

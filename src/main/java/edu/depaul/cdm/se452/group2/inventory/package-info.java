@@ -3,6 +3,15 @@ package edu.depaul.cdm.se452.group2.inventory;
 /*
  * @author Louis Rivera
  * 
+ * ******* Additional Features *******
+ * Used additional validation constraints like NotNull and Positive in Product.java.
+ * 
+ * Create service response classes like ProductServiceResponse.java that services can use to construct JSON responses.
+ * This helps the client render the response correctly since non-JSON strings are not easilyhandled by the client.
+ * 
+ * 
+ * ******* Progress *******
+ * 
  * ------- Milestone 1 -------
  * 
  * 9/11/2022
@@ -24,18 +33,25 @@ package edu.depaul.cdm.se452.group2.inventory;
  * 
  * Setup the database configuration so that the database is launched when the spring application is started.
  * 
+ * ------- Milestone 3 -------
+ * Create service calls so that inventory related items can be manipulated externally.
+ * Setup relationships betweeen inventory items. There were issues with some of the foriegn key objects were setup
+ * that was causing infinite creation of objects. The structure of the how the inventory items relate to
+ * one another had to be changed and the following tag had to be added to some of the classes:
+ * @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "Id")
  * 
+ * Added validation tags to the data entities.
  * 
+ * Figured out that Posting through swagger UI isn't working. Will have to setup postman to see if it's just
+ * swagger or if it's the way post is constructed.
  * 
+ * ------- Nice to Have / To Do List -------
  * 
- * 
- * 
- * 
- * ------- Nices to Have -------
- * 
- * - Add in validation for each of the entity objects' fields
  * - Change API calls so they return JSON responses instead of strings
- * - Add tests to test out each of the API routes
+ * - Add tests for each of the API routes
+ * - Add tests for the new relationships between the objects 
  * - Seperate out the database logic from the API logic so that they're in different classes
- * 
+ * - Fix posting. Right now, trying to post through swagger-ui isn't working.
+ * - Switch to No-SQL instead of SQL.
+ * - Setup Docker.
  */
