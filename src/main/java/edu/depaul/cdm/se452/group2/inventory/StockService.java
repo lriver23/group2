@@ -77,11 +77,11 @@ public class StockService {
         if(repo.findById(stock.getId()).isPresent()) {
             saveStocks(stock);
             log.traceExit("Exit putStock", stock);
-            return ResponseEntity.ok("Stock updated");
+            return ResponseEntity.ok(StockServiceResponse.constructSuccessWithStock(stock));
         }
         else {
             log.traceExit("Exit putStock", stock);
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body(StockServiceResponse.constructErrorNoStockExists(stock.getId()));
         }
     }
 
@@ -89,10 +89,18 @@ public class StockService {
     @Operation(summary = "Deletes a stock when given its Id")
     @ApiResponse(responseCode = "200", description = "valid response",
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=Stock.class))})
-    public void deleteStock(long id) {
+    public ResponseEntity<String> deleteStock(long id) {
         log.traceEntry("Enter deleteStock", id);
-        repo.deleteById(id);
-        log.traceExit("Exit deleteStock");
+
+        if(repo.findById(id).isPresent()) {
+            repo.deleteById(id);
+            log.traceExit("Exit deleteStock");
+            return ResponseEntity.ok(StockServiceResponse.constructDefaultSuccess());
+        }
+        else {
+            log.traceExit("Exit deleteStock");
+            return ResponseEntity.badRequest().body(StockServiceResponse.constructErrorNoStockExists(id));
+        }
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
