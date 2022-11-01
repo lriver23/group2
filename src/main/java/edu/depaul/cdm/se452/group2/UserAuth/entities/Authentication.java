@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -16,14 +17,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "Authentication")
 public class Authentication{
     
     public static final String getU_name = null;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
+    private long id;
+
     @Column(name = "User_Name")
     private String u_name;
     
@@ -35,6 +37,7 @@ public class Authentication{
     private String email;
 
     @OneToOne
+    @JoinColumn(name = "Address_Id")
     private Address address;
 
 

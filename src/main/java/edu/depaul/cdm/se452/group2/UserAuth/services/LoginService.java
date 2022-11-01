@@ -73,7 +73,7 @@ public class LoginService {
     public void save(@RequestBody Login user){
         
         log.traceEntry("enter save");  
-        if(repo.findById(user.getActive_user_id()).isPresent()){
+        if(repo.findById(user.getId()).isPresent()){
             user.setLoggedIn(true);
             repo.save(user);
             log.info("user logged in");

@@ -3,11 +3,14 @@ insert into Cart(Cart_ID , Order_ID, Product_Quantity ) values (222  , 666, 4);
 insert into Orders(Order_ID, Cart_ID , User_ID) values (555 , 111 , 'majid');
 insert into Orders(Order_ID , Cart_ID , User_ID) values (666 , 222 , 'shoeb');
 
-insert into Authentication(user_name, email, password) values ('shoeb', 'smk@gmail.com','123');
-insert into Authentication(user_name, email, password) values ('ahsan', 'mm@gmail.com','345');
-insert into AuthorizationU(user_name, is_premium, is_seller) values ('shoeb', 'TRUE','TRUE');
-insert into AuthorizationU(user_name, is_premium, is_seller) values ('ahsan', 'TRUE','TRUE');
+insert into Address(location) values('hyderabad');
+--Had to check Map Ids
+insert into Authentication(email, password, user_name, address_id) values ('smk@gmail.com', '123','shoeb', 1);
+insert into Authentication(email, password, user_name, address_id) values ('mmk@gmail.com', '456','Majid', 1);
+insert into AuthorizationU(is_premium, is_seller, user_name) values ('TRUE','TRUE', 1);
+insert into AuthorizationU(is_premium, is_seller, user_name) values ('TRUE','TRUE', 2);
 
+insert into Login(is_login, Authentication_Id) values ('TRUE', 1);
 
 insert into History(search_history, item) values('teddy bear', 'build a bear buddy');
 insert into History(search_history, item) values('diet soda', 'diet coke');

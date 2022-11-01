@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import edu.depaul.cdm.se452.group2.UserAuth.entities.Address;
 import edu.depaul.cdm.se452.group2.UserAuth.entities.Authentication;
 import edu.depaul.cdm.se452.group2.UserAuth.repos.AuthenticationRepo;
-import lombok.val;
+//import lombok.val;
 
 @SpringBootTest
 public class AuthenticationTest {
@@ -20,16 +20,16 @@ public class AuthenticationTest {
     @Test
     public void testAuthentication() {
         Address smkAddress = new Address();
-        smkAddress.setLocation("Hyderabad");
+        smkAddress.setLocation("Delhi");
 
-        val shoeb = new Authentication("Majidd", "emaill", "pwdxfrr", smkAddress);
-        val majid = new Authentication("DAL", "Dallas", "TX", smkAddress);
+        var shoeb = new Authentication();
+        var majid = new Authentication();
         
-        val b4 = AUR.count();
+        var b4 = AUR.count();
         AUR.save(shoeb);
         AUR.save(majid);
    
-        val after = AUR.count();
+        var after = AUR.count();
 
         assertEquals(b4 + 2, after);
     }

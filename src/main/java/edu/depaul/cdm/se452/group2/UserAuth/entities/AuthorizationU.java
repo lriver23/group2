@@ -39,8 +39,6 @@ public class AuthorizationU implements Serializable{
     @Column(name = "Id")
     private long id;
 
-
-
     @OneToOne
     @JoinColumn(name = "User_Name")
     private Authentication u_name;
