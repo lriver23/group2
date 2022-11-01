@@ -8,9 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import edu.depaul.cdm.se452.group2.OrderPlacement.Orders;
-import edu.depaul.cdm.se452.group2.OrderPlacement.OrdersRepository;
+import edu.depaul.cdm.se452.group2.OrderPlacement.entities.Cart;
+import edu.depaul.cdm.se452.group2.OrderPlacement.entities.Orders;
 //import lombok.val;
+import edu.depaul.cdm.se452.group2.OrderPlacement.repos.OrdersRepository;
 
 @SpringBootTest
 public class OrdersTest {
