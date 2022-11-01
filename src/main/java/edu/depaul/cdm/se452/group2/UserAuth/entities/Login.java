@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -24,10 +25,10 @@ public class Login{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Active_user_Id")
-    private long active_user_id;
+    private long id;
 
-    @OneToOne
+    @OneToOne    
+    @JoinColumn(name = "Authentication_Id")
     private Authentication u_name;
 
     @Column(name = "Is_login")
