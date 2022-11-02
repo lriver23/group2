@@ -37,7 +37,7 @@ jobs:
 
     - uses: mr-smithers-excellent/docker-build-push@v5.8
       name: Docker Build & Push Action
-       with:
+      with:
           image: shoebsmk/group2application
           tags: v1, latest
           registry: docker.io
