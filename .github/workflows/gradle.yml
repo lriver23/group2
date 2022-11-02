@@ -35,9 +35,9 @@ jobs:
       with:
         arguments: build
 
-    - name: Docker Build & Push Action
-      uses: mr-smithers-excellent/docker-build-push@v5.8
+    - uses: mr-smithers-excellent/docker-build-push@v5.8
+      name: Docker Build & Push Action
        with:
-          image: depaulkenyu/se452-demo-app
+          image: shoebsmk/group2application
           tags: v1, latest
           registry: docker.io
