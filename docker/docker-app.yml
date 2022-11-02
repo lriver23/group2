@@ -1,10 +1,10 @@
-# version: '3.8'
+version: '3.8'
 
-# services:
-#     app:
-#         container_name: group2
-#         image: group2
-#         env_file: ./.env
-#         ports:
-#             - "$SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT"
+services:
+    app:
+        container_name: group2
+        image: group2
+        env_file: ./.env
+        ports:
+            - "$SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT"
         
