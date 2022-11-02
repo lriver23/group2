@@ -7,7 +7,7 @@ insert into Address(location) values('hyderabad');
 --Had to check Map Ids
 insert into Authentication(email, password, user_name, address_id) values ('smk@gmail.com', '123','shoeb', 1);
 insert into Authentication(email, password, user_name, address_id) values ('mmk@gmail.com', '456','Majid', 1);
-insert into Authentication(email, password, user_name, address_id) values ('jj@gmail.com', '222','John', 1);
+insert into Authentication(email, password, user_name, address_id) values ('jhn@gmail.com', '222','John', 1);
 
 insert into AuthorizationU(is_premium, is_seller, user_name) values ('TRUE','TRUE', 1);
 insert into AuthorizationU(is_premium, is_seller, user_name) values ('TRUE','TRUE', 2);
