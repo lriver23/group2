@@ -10,6 +10,6 @@ spring:
     show-sql: true
     defer-datasource-initialization: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/se452db
+    url: jdbc:postgresql://localhost:5432/se452
     username: postgres
     password: password
