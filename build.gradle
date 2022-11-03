@@ -30,6 +30,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'org.postgresql:postgresql'
 
 	implementation 'org.springdoc:springdoc-openapi-common:1.6.11'
   	implementation 'org.springdoc:springdoc-openapi-data-rest:1.6.11'
