@@ -10,7 +10,7 @@ import edu.depaul.cdm.se452.group2.UserAuth.entities.Address;
 import edu.depaul.cdm.se452.group2.UserAuth.entities.Authentication;
 import edu.depaul.cdm.se452.group2.UserAuth.repos.AddressRepository;
 import edu.depaul.cdm.se452.group2.UserAuth.repos.AuthenticationRepo;
-import lombok.var;
+//import lombok.var;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -37,19 +37,14 @@ public class Group2Application {
 		AddressRepository addressRepository
 	) {
 		return (args) -> {
-			Address smkAddress = new Address();
-			smkAddress.setLocation("Hyderabad");
-			addressRepository.save(smkAddress);
-
-			var sami = new Authentication("Sami", "456", "sami@gmail.com", smkAddress);
 			
-			long b4 = AUR.count();
-			log.info(b4);
-			AUR.save(sami);
-	
-			long after = AUR.count();
-			log.info(after);
+
 			};
 	}
 
 }
+// docker setup on mac
+// add dickerfile in root and docker folder in root which has docker-app.yml
+// use diff java version:  eclipse-temurin: 17-jdk-focal
+// To run use: docker run -d -p 8080:8080 group2application
+//

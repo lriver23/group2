@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+    app:
+        container_name: 8a6f4fb848a0ce7bde83350d96d7d678ad9a9da37d93dec42a858948e36b0e72
+        image: shoebsmk/group2application
+        env_file: ./.env
+        ports:
+            - "$SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT"
+        

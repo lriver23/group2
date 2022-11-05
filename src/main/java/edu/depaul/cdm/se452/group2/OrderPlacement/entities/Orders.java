@@ -20,6 +20,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "Orders")
 public class Orders {
 
+    public Orders(int order_id2, int i, String user_id2) {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Order_ID")
