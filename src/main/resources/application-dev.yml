@@ -11,6 +11,19 @@ spring:
         defer-datasource-initialization: true
         hibernate:
             ddl-auto: create-drop
-    datasource:
-        url: jdbc:h2:mem:dev
-        data: classpath:/data.sql
+    # datasource:
+    #     url: jdbc:h2:mem:dev
+        # data: classpath:/data.sql
+    security:
+        user:
+            name: admin
+            password: adminPassword
+    data:
+        #Default mongoDB host and port
+        mongodb:
+            host: mongo
+            port: 27017
+        #Default redis host and port    
+        redis:
+            host: localhost
+            port: 6379

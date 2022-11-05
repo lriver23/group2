@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    env_file: ./.env
+    volumes: 
+      - "$POSTGRES_EXTERNAL_LOC:/var/lib/postgresql/data"
+    restart: always
+    ports:
+      - $POSTGRES_PORT:$POSTGRES_PORT
+    environment:
+        POSTGRES_PASSWORD: $SQL_PASSWORD
+  mongo:
+    container_name: mongo
+    image: mongo
+    env_file: ./.env
+    volumes: 
+        - "$MONGO_EXTERNAL_LOC:/data/db"
+    restart: always
+    ports:
+        - $MONGO_PORT:$MONGO_PORT
+  redis:
+    container_name: redis
+    image: "redis:alpine"
+    command: redis-server
+    ports:
+     - "$REDIS_PORT:$REDIS_PORT"
+    volumes:
+      - $REDIS_EXTERNAL_LOC:/data
