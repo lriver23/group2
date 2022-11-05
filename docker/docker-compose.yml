@@ -18,7 +18,7 @@ services:
     app:
       depends_on: 
         - postgresql
-      container_name: demo-postgres
+      container_name: group2application
       image: shoebsmk/group2application
       env_file: ./.env
       ports:

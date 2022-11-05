@@ -7,4 +7,5 @@ services:
         env_file: ./.env
         ports:
             - "$SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT"
+            
         
