@@ -94,11 +94,11 @@ public class NoStockService {
     @Operation(summary = "Deletes a noStock when given its Id")
     @ApiResponse(responseCode = "200", description = "valid response",
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=NoStock.class))})
-    public ResponseEntity<String> deleteNoStock(long id) {
+    public ResponseEntity<String> deleteNoStock(String id) {
         log.traceEntry("Enter deleteStock", id);
 
-        if(repo.findById(id + "").isPresent()) {
-            repo.deleteById(id + "");
+        if(repo.findById(id).isPresent()) {
+            repo.deleteById(id);
             log.traceExit("Exit deleteStock");
             return ResponseEntity.ok(ResponseUtil.constructDefaultSuccess());
         }

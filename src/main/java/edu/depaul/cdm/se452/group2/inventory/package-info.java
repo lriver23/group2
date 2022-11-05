@@ -9,6 +9,7 @@ package edu.depaul.cdm.se452.group2.inventory;
  * Create service response classes like ProductServiceResponse.java that services can use to construct JSON responses.
  * This helps the client render the response correctly since non-JSON strings are not easilyhandled by the client.
  * 
+ * NoSeller.java is using @DocumentReference to establish a one-to-many relationship with products
  * 
  * ******* Progress *******
  * 
@@ -47,11 +48,7 @@ package edu.depaul.cdm.se452.group2.inventory;
  * 
  * ------- Nice to Have / To Do List -------
  * 
- * - Change API calls so they return JSON responses instead of strings
- * - Add tests for each of the API routes
- * - Add tests for the new relationships between the objects 
- * - Seperate out the database logic from the API logic so that they're in different classes
- * - Fix posting. Right now, trying to post through swagger-ui isn't working.
- * - Switch to No-SQL instead of SQL.
- * - Setup Docker.
+ * - Add tests for services
+ * - Add actions in github
+ * - Figure out extra stuff you can add
  */

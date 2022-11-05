@@ -26,7 +26,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.NonNull;
-//import lombok.var;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
@@ -76,7 +75,7 @@ public class ProductService {
 
         if(repo.findById(product.getId()).isPresent()) {
             saveProduct(product);
-            log.traceExit("Exit postProduct", product);
+            log.traceExit("Exit putProduct", product);
             return ResponseEntity.ok(ProductServiceResponse.constructSuccessWithProduct(product));
         }
         else {
@@ -91,7 +90,6 @@ public class ProductService {
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=Product.class))})
     public ResponseEntity<String> deleteProduct(long id) {
         log.traceEntry("Enter deleteProduct", id);
-
 
         if(repo.findById(id).isPresent()) {
             repo.deleteById(id);
