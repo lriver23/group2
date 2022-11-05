@@ -11,6 +11,15 @@ services:
             - "~/postgres/data:/var/lib/postgresql/data"
         restart: always
         ports:
-            - 5432:5432
+            - 5431:5432
         environment:
             POSTGRES_PASSWORD: password
+    mongo:
+        container_name: demo-mongo
+        image: mongo
+        env_file: ./.env
+        volumes: 
+            - "$MONGO_EXTERNAL_LOC:/data/db"
+        restart: always
+        ports:
+            - $MONGO_PORT:$MONGO_PORT
