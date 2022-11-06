@@ -32,7 +32,7 @@ import lombok.NonNull;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
-@RequestMapping("/api/sellers")
+@RequestMapping("/api/nosellers")
 @Tag(name = "Sellers", description = "Allows manipulation of Seller database items")
 @Log4j2
 public class NoSellerService {

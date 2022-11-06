@@ -6,10 +6,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Document
+@Document("NoSeller")
+@Builder
 public class NoSeller {
     
     @Id

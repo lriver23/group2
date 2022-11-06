@@ -11,6 +11,19 @@ package edu.depaul.cdm.se452.group2.inventory;
  * 
  * NoSeller.java is using @DocumentReference to establish a one-to-many relationship with products
  * 
+ * Used junit's @BeforeEach and @BeforeAll in NoProductServiceTest.java, NoSellerServiceTest.java, and NoStockServiceTest.java to perform common setup between unit tests.
+ * 
+ * Used lombok's @Builder annotation in NoProduct.java, NoSeller.java, and NoStock.java so that objects could be built easier manaully for testing.
+ * The tests that then use these builders are in NoProductServiceTest.java, NoSellerServiceTest.java, and NoStockServiceTest.java.
+ * 
+ * Security had been enabled for the application so that a username and password was required. This was making it so that testing the
+ * serivce was failing because requests were returning with 401 errors. To get around this issue, a security test dependency was
+ * added to the build.gradle file. Then in NoProductServiceTest.java, NoSellerServiceTest.java, and NoStockServiceTest.java, 
+ * a mock login was created of type RequestPostProcessor and then used when making requests.
+ * 
+ * Cross Site Request Forgery (CSRF) was causing posts requests to fail in testing. The request had to be maid by passing in
+ * a mock CSRF token with the request. You can see it added to the post test in NoProductServiceTest.java, NoSellerServiceTest.java, and NoStockServiceTest.java.
+ * 
  * ******* Progress *******
  * 
  * ------- Milestone 1 -------
@@ -35,6 +48,7 @@ package edu.depaul.cdm.se452.group2.inventory;
  * Setup the database configuration so that the database is launched when the spring application is started.
  * 
  * ------- Milestone 3 -------
+ * 
  * Create service calls so that inventory related items can be manipulated externally.
  * Setup relationships betweeen inventory items. There were issues with some of the foriegn key objects were setup
  * that was causing infinite creation of objects. The structure of the how the inventory items relate to
@@ -46,9 +60,13 @@ package edu.depaul.cdm.se452.group2.inventory;
  * Figured out that Posting through swagger UI isn't working. Will have to setup postman to see if it's just
  * swagger or if it's the way post is constructed.
  * 
+ *  * ------- Milestone 4 -------
+ * 
+ * 
+ * 
+ * 
  * ------- Nice to Have / To Do List -------
  * 
  * - Add tests for services
  * - Add actions in github
- * - Figure out extra stuff you can add
  */

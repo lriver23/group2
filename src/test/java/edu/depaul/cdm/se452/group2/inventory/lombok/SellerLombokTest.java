@@ -13,8 +13,6 @@ public class SellerLombokTest {
         var seller = new Seller();
         seller.setIncome(200.15);
         seller.setName("Rudyions");
-        //log.info("Seller toString: " + seller.toString());
-
         var expectedSellerString = "Seller(id=0, name=Rudyions, income=200.15)";
         assertEquals(expectedSellerString, seller.toString());
     }

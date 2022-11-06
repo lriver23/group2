@@ -12,8 +12,6 @@ public class StockLombokTest {
     public void testLombokFunctions() {
         var stock = new Stock();
         stock.setQuantityAvailable(20);
-        //log.info("Stock toString: " + stock.toString());
-
         var expectedStockToString = "Stock(id=0, quantityAvailable=20)";
         assertEquals(expectedStockToString, stock.toString());
     }
