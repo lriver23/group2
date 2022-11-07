@@ -22,7 +22,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import edu.depaul.cdm.se452.group2.inventory.nonrelational.data.NoStock;
 import edu.depaul.cdm.se452.group2.inventory.nonrelational.data.NoStockRepo;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 
 @SpringBootTest
