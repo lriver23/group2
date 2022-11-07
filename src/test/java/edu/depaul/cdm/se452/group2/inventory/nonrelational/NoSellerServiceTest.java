@@ -25,7 +25,6 @@ import edu.depaul.cdm.se452.group2.inventory.nonrelational.data.NoSellerRepo;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 
-@Log4j2
 @SpringBootTest
 @AutoConfigureMockMvc
 public class NoSellerServiceTest {
@@ -53,8 +52,6 @@ public class NoSellerServiceTest {
 
     @BeforeEach
     public void setupRepoData() {
-        log.info("Setting up test");
-
         noSellerRepo.deleteAll();
         
         NoSeller np1 = NoSeller.builder()

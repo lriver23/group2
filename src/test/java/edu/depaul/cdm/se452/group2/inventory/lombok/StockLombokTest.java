@@ -2,11 +2,9 @@ package edu.depaul.cdm.se452.group2.inventory.lombok;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-//import lombok.extern.log4j.Log4j2;
 
 import edu.depaul.cdm.se452.group2.inventory.Stock;
 
-//@Log4j2
 public class StockLombokTest {
     @Test
     public void testLombokFunctions() {
