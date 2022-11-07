@@ -46,7 +46,7 @@ public class NoSellerService {
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=NoSeller.class))})
     public List<NoSeller> getAllNoSellers() {
         log.traceEntry("Enter getAllNoSellers");
-        var foundNoSellers = repo.findAll();
+        List<NoSeller> foundNoSellers = repo.findAll();
         log.traceExit("Exit getAllNoSellers", foundNoSellers);
         return foundNoSellers;
     }
@@ -64,7 +64,7 @@ public class NoSellerService {
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=NoSeller.class))})
     public ResponseEntity<String> postNoSeller(@Valid @RequestBody NoSeller noSeller) {
         log.traceEntry("Enter postNoSeller");
-        var savedNoSellerId = saveNoSeller(noSeller);
+        String savedNoSellerId = saveNoSeller(noSeller);
         log.traceExit("Exit postNoSeller", saveNoSeller(noSeller));
         return ResponseEntity.ok("NoSeller added, new id is " + savedNoSellerId);
     }

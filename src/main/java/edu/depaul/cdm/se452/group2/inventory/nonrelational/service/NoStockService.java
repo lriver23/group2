@@ -30,7 +30,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.NonNull;
-import lombok.var;
 import lombok.extern.log4j.Log4j2;
 
 
@@ -49,7 +48,7 @@ public class NoStockService {
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=NoStock.class))})
     public List<NoStock> getAllNoStocks() {
         log.traceEntry("Enter getAllNoStocks");
-        var foundNoStocks = repo.findAll();
+        List<NoStock> foundNoStocks = repo.findAll();
         log.traceExit("Exit getAllNoStocks", foundNoStocks);
         return foundNoStocks;
     }
@@ -67,7 +66,7 @@ public class NoStockService {
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=NoStock.class))})
     public ResponseEntity<String> postStock(@Valid @RequestBody NoStock noStock) {
         log.traceEntry("Enter postNoStock");
-        var savedNoStockId = saveNoStock(noStock);
+        String savedNoStockId = saveNoStock(noStock);
         log.traceExit("Exit postNoStock", saveNoStock(noStock));
         return ResponseEntity.ok("Stock added, new id is " + savedNoStockId);
     }

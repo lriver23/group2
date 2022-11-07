@@ -47,7 +47,7 @@ public class NoProductService {
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=NoProduct.class))})
     public List<NoProduct> getAllNoProducts() {
         log.traceEntry("Enter getAllNoProducts");
-        var foundNoProducts = repo.findAll();
+        List<NoProduct> foundNoProducts = repo.findAll();
         log.traceExit("Exit getAllNoProducts", foundNoProducts);
         return foundNoProducts;
     }
@@ -65,7 +65,7 @@ public class NoProductService {
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=NoProduct.class))})
     public ResponseEntity<String> postNoProduct(@Valid @RequestBody NoProduct noProduct) {
         log.traceEntry("Enter postNoProduct");
-        var savedNoProductId = saveNoProduct(noProduct);
+        String savedNoProductId = saveNoProduct(noProduct);
         log.traceExit("Exit postNoProduct", saveNoProduct(noProduct));
         return ResponseEntity.ok("NoProduct added, new id is " + savedNoProductId);
     }
