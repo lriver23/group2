@@ -12,6 +12,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -90,11 +91,11 @@ public class NoStockService {
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @Operation(summary = "Deletes a noStock when given its Id")
     @ApiResponse(responseCode = "200", description = "valid response",
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=NoStock.class))})
-    public ResponseEntity<String> deleteNoStock(String id) {
+    public ResponseEntity<String> deleteNoStock(@PathVariable String id) {
         log.traceEntry("Enter deleteStock", id);
 
         if(repo.findById(id).isPresent()) {
