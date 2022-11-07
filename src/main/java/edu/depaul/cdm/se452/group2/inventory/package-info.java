@@ -62,11 +62,13 @@ package edu.depaul.cdm.se452.group2.inventory;
  * 
  *  * ------- Milestone 4 -------
  * 
- * 
+ * Setup NoSQL for the inventory data objects.
+ * Added seperate classes for each NoSQL data object, NoSQL repos, and NoSQL service calls.
+ * Added tests that test the NoSQL service calls.
+ * Setup docker compose so that it starts the app and three database in their own containers.
  * 
  * 
  * ------- Nice to Have / To Do List -------
  * 
- * - Add tests for services
  * - Add actions in github
  */
