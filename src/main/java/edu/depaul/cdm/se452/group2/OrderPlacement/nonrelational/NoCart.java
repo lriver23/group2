@@ -11,20 +11,18 @@ import lombok.NoArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Data
-@Document("NoCart")
+@Document
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class NoCart {
 
     @Id
-
     private long Cart_id;
 
     private long Product_quantity;
 
     private long Order_id;
 
-    @DBRef
-    private NoOrders noOrders;
+    
 }

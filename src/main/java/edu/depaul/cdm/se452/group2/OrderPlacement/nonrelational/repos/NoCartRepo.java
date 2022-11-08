@@ -6,9 +6,7 @@ import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface NoCartRepo extends MongoRepository<NoCart, String> {
+public interface NoCartRepo extends MongoRepository<NoCart,Long> {
 
-    Optional<NoCart> findById(long cart_id);
-
-    void deleteById(long id);
+  
 }
