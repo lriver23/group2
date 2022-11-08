@@ -58,4 +58,9 @@ package edu.depaul.cdm.se452.group2.userAuth;
  * Set-up Postgres with docker
  * Change spring version to support MongoDB
  * Set-up mongoDB in compose
+ * 
+ * Nov 8, 2022
+ * Added NoSql Mongo entites, repos and services.
+ * Added Repo and service tests for noSql repositories
+ * Added sprinng security(Working)
  */

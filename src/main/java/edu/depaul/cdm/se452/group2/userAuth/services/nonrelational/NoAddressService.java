@@ -1,6 +1,8 @@
-package edu.depaul.cdm.se452.group2.userAuth.services;
+
+package edu.depaul.cdm.se452.group2.userAuth.services.nonrelational;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.Id;
 import javax.validation.Valid;
@@ -16,9 +18,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.depaul.cdm.se452.group2.userAuth.entities.AuthorizationU;
-import edu.depaul.cdm.se452.group2.userAuth.repos.AuthenticationRepo;
-import edu.depaul.cdm.se452.group2.userAuth.repos.AuthorizationRepo;
+import edu.depaul.cdm.se452.group2.userAuth.entities.nonrelational.NoAddress;
+import edu.depaul.cdm.se452.group2.userAuth.entities.relational.Authentication;
+import edu.depaul.cdm.se452.group2.userAuth.entities.relational.Login;
+import edu.depaul.cdm.se452.group2.userAuth.repos.nonrelational.NoAddressRepo;
+import edu.depaul.cdm.se452.group2.userAuth.repos.relational.AuthenticationRepo;
+import edu.depaul.cdm.se452.group2.userAuth.repos.relational.AuthorizationRepo;
+import edu.depaul.cdm.se452.group2.userAuth.repos.relational.LoginRepo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -41,53 +47,59 @@ import lombok.extern.log4j.Log4j2;
 @AllArgsConstructor
 @NoArgsConstructor
 @RestController
-@RequestMapping("/api/authorization")
-@Tag(name = "AuthorizationU",description = "Allows manipulation of Authorization Data")
+@RequestMapping("/api/noAddress")
+@Tag(name = "NoAddress",description = "Allows Address")
 @Log4j2
-public class AuthorizationService {
+public class NoAddressService {
+    
     @Autowired
-    private AuthorizationRepo repo;
+    private NoAddressRepo repo;
 
-    private AuthenticationRepo aRepo;
     
     @GetMapping
-    @Operation(summary = "Returns all the Authorization data")
+    @Operation(summary = "Returns all Addresses users")
     @ApiResponse(responseCode = "200", description = "valid response", 
-        content = {@Content(mediaType="application/json", schema=@Schema(implementation=AuthorizationU.class))})
-    public List<AuthorizationU> list() {
+        content = {@Content(mediaType="application/json", schema=@Schema(implementation= NoAddress.class))})
+    public List<NoAddress> list() {
         log.traceEntry("Enter List");
         var retval = repo.findAll();
         log.traceEntry("Exit List");
         return repo.findAll();
     }
+
     @PostMapping()
-    @Operation(summary = "Add new user information")
+    @Operation(summary = "Post new address")
     @ApiResponse(responseCode = "200", description = "valid response",
-    content = {@Content(mediaType="application/json", schema=@Schema(implementation=AuthorizationU.class))})
-    public void save(@RequestBody AuthorizationU authorizationU){
+    content = {@Content(mediaType="application/json", schema=@Schema(implementation = NoAddress.class))})
+    public void save(@RequestBody NoAddress addr){
+        
         log.traceEntry("enter save");  
-        repo.save(authorizationU);
+        if(!repo.findById(addr.getId()).isPresent()){
+            repo.save(addr);
+            //return ResponseEntity.ok("new id is " + user.getU_name());
+        }
+        else log.info("user not found");
         log.traceEntry("exit save");
     }
 
     @DeleteMapping
-    @Operation(summary = "Delete user Authorization information")
+    @Operation(summary = "Delete Address")
     @ApiResponse(responseCode = "200", description = "valid response",
-    content = {@Content(mediaType="application/json", schema=@Schema(implementation=AuthorizationU.class))})
+    content = {@Content(mediaType="application/json", schema=@Schema(implementation=NoAddress.class))})
     public void delete(Long id) {
-        log.traceEntry("Enter delete", id);
+        log.traceEntry("Enter deleteNoAddress", id);
         repo.deleteById(id);
-        log.traceExit("Exit delete");
+        log.traceExit("Exit deleteNoAddress");
     }
 
     @PutMapping
-    @Operation(summary = "Update user information")
+    @Operation(summary = "Update Address")
     @ApiResponse(responseCode = "200", description = "valid response",
-    content = {@Content(mediaType="application/json", schema=@Schema(implementation=AuthorizationU.class))})
-    public ResponseEntity<String> put(@Valid @RequestBody AuthorizationU user) {
-        log.traceEntry("Enter put", user);
-        if(repo.findById(user.getId()).isPresent()){
-            repo.save(user);
+    content = {@Content(mediaType="application/json", schema=@Schema(implementation=NoAddress.class))})
+    public ResponseEntity<String> put(@Valid @RequestBody NoAddress addr) {
+        log.traceEntry("Enter put", addr);
+        if(repo.findById(addr.getId()).isPresent()){
+            repo.save(addr);
             return ResponseEntity.ok("User updated");
         } else{
             log.traceExit("Exit user update");
@@ -96,13 +108,4 @@ public class AuthorizationService {
         
     }
 
-    // @PostMapping("/validated")
-    // @Operation(summary = "Save the User and returns the User id")
-    // public ResponseEntity<String> validatedSave(@Valid @RequestBody Authentication authentication) {
-    //     log.traceEntry("enter save", authentication);
-    //     repo.save(authentication);
-    //     log.traceExit("exit save", authentication);
-    //     return ResponseEntity.ok("new id is " + authentication.getU_name());
-    // }
-    
 }

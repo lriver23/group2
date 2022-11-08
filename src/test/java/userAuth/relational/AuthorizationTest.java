@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2;
+package userAuth.relational;
 import org.junit.jupiter.api.Test;
 //import lombok.var;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import edu.depaul.cdm.se452.group2.userAuth.entities.Authentication;
-import edu.depaul.cdm.se452.group2.userAuth.entities.AuthorizationU;
-import edu.depaul.cdm.se452.group2.userAuth.repos.AuthenticationRepo;
-import edu.depaul.cdm.se452.group2.userAuth.repos.AuthorizationRepo;
+import edu.depaul.cdm.se452.group2.userAuth.entities.relational.Authentication;
+import edu.depaul.cdm.se452.group2.userAuth.entities.relational.AuthorizationU;
+import edu.depaul.cdm.se452.group2.userAuth.repos.relational.AuthenticationRepo;
+import edu.depaul.cdm.se452.group2.userAuth.repos.relational.AuthorizationRepo;
 
 @SpringBootTest
 public class AuthorizationTest {

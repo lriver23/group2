@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2.userAuth.entities;
+package edu.depaul.cdm.se452.group2.userAuth.entities.relational;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,5 +17,10 @@ public class Address {
     // public Address(String location){
     //     this.location = location;
     // }
-    private String location;        
+    private String location;
+	public int count() {
+		return (Integer) null;
+	}
+    public void save(Address smkAddress) {
+    }        
 }

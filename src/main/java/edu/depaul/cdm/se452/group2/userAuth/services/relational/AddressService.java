@@ -1,5 +1,5 @@
 
-package edu.depaul.cdm.se452.group2.userAuth.services;
+package edu.depaul.cdm.se452.group2.userAuth.services.relational;
 
 import java.util.List;
 import java.util.Map;
@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.depaul.cdm.se452.group2.inventory.util.ApiUtils;
-import edu.depaul.cdm.se452.group2.userAuth.entities.Address;
-import edu.depaul.cdm.se452.group2.userAuth.repos.AddressRepository;
+import edu.depaul.cdm.se452.group2.userAuth.entities.relational.Address;
+import edu.depaul.cdm.se452.group2.userAuth.repos.relational.AddressRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -87,6 +87,22 @@ public class AddressService{
     //         return ResponseEntity.badRequest().build();
     //     }
     // }
+
+    @PutMapping
+    @Operation(summary = "Update Address")
+    @ApiResponse(responseCode = "200", description = "valid response",
+    content = {@Content(mediaType="application/json", schema=@Schema(implementation=AddressService.class))})
+    public ResponseEntity<String> put(@Valid @RequestBody Address addr) {
+        log.traceEntry("Enter put", addr);
+        if(repo.findById(addr.getId()).isPresent()){
+            repo.save(addr);
+            return ResponseEntity.ok("User updated");
+        } else{
+            log.traceExit("Exit user update");
+            return ResponseEntity.badRequest().build();
+        }
+        
+    }
 
     @DeleteMapping
     @Operation(summary = "Deletes an address when given its id")

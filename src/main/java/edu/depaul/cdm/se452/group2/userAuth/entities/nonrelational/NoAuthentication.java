@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2.userAuth.entities;
+package edu.depaul.cdm.se452.group2.userAuth.entities.nonrelational;
 
 
 import javax.persistence.Column;
@@ -10,14 +10,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
-public class Authentication{
+@Document
+public class NoAuthentication{
     
     public static final String getU_name = null;
 
@@ -38,7 +39,7 @@ public class Authentication{
 
     @OneToOne
     @JoinColumn(name = "Address_Id")
-    private Address address;
+    private NoAddress address;
 
 
     /**
@@ -87,14 +88,14 @@ public class Authentication{
     /**
      * @return Address return the address
      */
-    public Address getAddress() {
+    public NoAddress getAddress() {
         return address;
     }
 
     /**
      * @param address the address to set
      */
-    public void setAddress(Address address) {
+    public void setAddress(NoAddress address) {
         this.address = address;
     }
 

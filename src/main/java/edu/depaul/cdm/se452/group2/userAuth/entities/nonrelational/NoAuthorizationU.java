@@ -1,5 +1,6 @@
-package edu.depaul.cdm.se452.group2.userAuth.entities;
+package edu.depaul.cdm.se452.group2.userAuth.entities.nonrelational;
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -11,16 +12,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
+@Document
+
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "AuthorizationU")
-public class AuthorizationU implements Serializable{
+@Table(name = "NoAuthorizationU")
+public class NoAuthorizationU implements Serializable{
     
     //link using primary and secondry keys
 
@@ -41,13 +46,17 @@ public class AuthorizationU implements Serializable{
 
     @OneToOne
     @JoinColumn(name = "User_Name")
-    private Authentication u_name;
+    private NoAuthentication u_name;
     
     @Column(name = "Is_Premium")
     private boolean is_premium;
 
     @Column(name = "Is_Seller")
     private boolean is_seller;
+
+    public List<NoAuthorizationU> findAll() {
+        return null;
+    }
 
 
 }
