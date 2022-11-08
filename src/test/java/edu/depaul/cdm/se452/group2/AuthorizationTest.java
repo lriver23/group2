@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import edu.depaul.cdm.se452.group2.UserAuth.repos.AuthenticationRepo;
-import edu.depaul.cdm.se452.group2.UserAuth.repos.AuthorizationRepo;
-import edu.depaul.cdm.se452.group2.UserAuth.entities.Authentication;
-import edu.depaul.cdm.se452.group2.UserAuth.entities.AuthorizationU;
+import edu.depaul.cdm.se452.group2.userAuth.entities.Authentication;
+import edu.depaul.cdm.se452.group2.userAuth.entities.AuthorizationU;
+import edu.depaul.cdm.se452.group2.userAuth.repos.AuthenticationRepo;
+import edu.depaul.cdm.se452.group2.userAuth.repos.AuthorizationRepo;
 
 @SpringBootTest
 public class AuthorizationTest {

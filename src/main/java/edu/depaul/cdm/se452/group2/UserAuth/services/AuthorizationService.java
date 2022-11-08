@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2.UserAuth.services;
+package edu.depaul.cdm.se452.group2.userAuth.services;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.depaul.cdm.se452.group2.UserAuth.entities.AuthorizationU;
-import edu.depaul.cdm.se452.group2.UserAuth.repos.AuthenticationRepo;
-import edu.depaul.cdm.se452.group2.UserAuth.repos.AuthorizationRepo;
+import edu.depaul.cdm.se452.group2.userAuth.entities.AuthorizationU;
+import edu.depaul.cdm.se452.group2.userAuth.repos.AuthenticationRepo;
+import edu.depaul.cdm.se452.group2.userAuth.repos.AuthorizationRepo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

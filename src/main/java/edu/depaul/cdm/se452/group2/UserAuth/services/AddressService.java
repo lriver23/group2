@@ -1,5 +1,5 @@
 
-package edu.depaul.cdm.se452.group2.UserAuth.services;
+package edu.depaul.cdm.se452.group2.userAuth.services;
 
 import java.util.List;
 import java.util.Map;
@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.depaul.cdm.se452.group2.UserAuth.entities.Address;
-import edu.depaul.cdm.se452.group2.UserAuth.repos.AddressRepository;
 import edu.depaul.cdm.se452.group2.inventory.util.ApiUtils;
+import edu.depaul.cdm.se452.group2.userAuth.entities.Address;
+import edu.depaul.cdm.se452.group2.userAuth.repos.AddressRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

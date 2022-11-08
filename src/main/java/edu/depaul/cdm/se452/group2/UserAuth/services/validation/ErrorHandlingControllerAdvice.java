@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.group2.UserAuth.services.validation;
+package edu.depaul.cdm.se452.group2.userAuth.services.validation;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
