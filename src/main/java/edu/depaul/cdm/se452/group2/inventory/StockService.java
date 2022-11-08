@@ -39,7 +39,7 @@ public class StockService {
     
     @GetMapping
     @Operation(summary = "Returns a complete list of all stocks")
-    @ApiResponse(responseCode = "200", description = "valid respons",
+    @ApiResponse(responseCode = "200", description = "valid response",
     content = {@Content(mediaType="application/json", schema=@Schema(implementation=Stock.class))})
     public List<Stock> getAllStocks() {
         log.traceEntry("Enter getAllStocks");

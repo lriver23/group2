@@ -1,47 +1,58 @@
-// package edu.depaul.cdm.se452.group2.inventory.repository;
+package edu.depaul.cdm.se452.group2.inventory.repository;
 
-// import static org.junit.jupiter.api.Assertions.assertEquals;
-// import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-// import org.junit.jupiter.api.Test;
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-// import edu.depaul.cdm.se452.group2.inventory.Stock;
-// import edu.depaul.cdm.se452.group2.inventory.StockRepository;
+import edu.depaul.cdm.se452.group2.inventory.ProductRepository;
+import edu.depaul.cdm.se452.group2.inventory.Stock;
+import edu.depaul.cdm.se452.group2.inventory.StockRepository;
 
-// @SpringBootTest
-// public class StockRepoTest {
-//     @Autowired
-//     private StockRepository repo;
+@SpringBootTest
+public class StockRepoTest {
+    @Autowired
+    private StockRepository stockRepo;
 
-//     @Test
-//     public void testCrud() {
-//         var stock = new Stock();
-//         stock.setQuantityAvailable(330);
-//         var initialStockId = stock.getId();  
-//         var initialRepoCount = repo.count();
+    @Autowired
+    private ProductRepository productRepo;
 
-//         repo.save(stock);
-//         var endStockId = stock.getId();
-//         var endRepoCount = repo.count();
+    @BeforeEach
+    public void setup() {
+        productRepo.deleteAll();
+        stockRepo.deleteAll();
+    }
 
-//         assertNotEquals(initialStockId, endStockId);
-//         assertEquals(initialRepoCount + 1, endRepoCount);
+    @Test
+    public void testCrud() {
+        var stock = new Stock();
+        stock.setQuantityAvailable(330);
+        var initialStockId = stock.getId();  
+        var initialRepoCount = stockRepo.count();
 
-//         var repoStock = repo.findById(endStockId).orElse(new Stock());
-//         var updatedQuantityAvailable = 180;
-//         repoStock.setQuantityAvailable(updatedQuantityAvailable);
+        stockRepo.save(stock);
+        var endStockId = stock.getId();
+        var endRepoCount = stockRepo.count();
 
-//         repo.save(repoStock);
-//         var updatedStock = repo.findById(endStockId).orElse(new Stock());
+        assertNotEquals(initialStockId, endStockId);
+        assertEquals(initialRepoCount + 1, endRepoCount);
+
+        var repoStock = stockRepo.findById(endStockId).orElse(new Stock());
+        var updatedQuantityAvailable = 180;
+        repoStock.setQuantityAvailable(updatedQuantityAvailable);
+
+        stockRepo.save(repoStock);
+        var updatedStock = stockRepo.findById(endStockId).orElse(new Stock());
         
-//         assertNotEquals(stock, updatedStock);
-//         assertEquals(updatedStock.getQuantityAvailable(), updatedQuantityAvailable);
+        assertNotEquals(stock, updatedStock);
+        assertEquals(updatedStock.getQuantityAvailable(), updatedQuantityAvailable);
 
-//         initialRepoCount = repo.count();
-//         repo.delete(updatedStock);
-//         endRepoCount = repo.count();
-//         assertEquals(initialRepoCount - 1, endRepoCount);
-//     }
-// }
+        initialRepoCount = stockRepo.count();
+        stockRepo.delete(updatedStock);
+        endRepoCount = stockRepo.count();
+        assertEquals(initialRepoCount - 1, endRepoCount);
+    }
+}

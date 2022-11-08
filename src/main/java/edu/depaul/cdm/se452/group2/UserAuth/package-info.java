@@ -25,7 +25,7 @@ package edu.depaul.cdm.se452.group2.UserAuth;
  * 
  * 
  * 
- * ------- Milestone 2 -------
+ * ------- Milestone 3 -------
  * Oct 16, 2022
  * Added services for Authenticatoin and Authorization tables
  * 
@@ -41,5 +41,21 @@ package edu.depaul.cdm.se452.group2.UserAuth;
  * Added login logic which can verify credentials and set login status in boolean value (Initially false)
  * Added logs
  * 
+ * ------- Milestone 4 -------
+ * Oct 30, 2022
+ * Bug fixed All test files and prepaired the standalone build successfully
  * 
+ * Oct 31, 2022 (Extra Feature)
+ * Set-up GitHub actions build workflow
+ * 
+ * Nov 1, 2022 (Extra Feature)
+ * Set-up Docker on device and ran standalone container
+ * 
+ * Nov 2, 2022 (Extra Feature)
+ * Set-up Docker hub push via GitHub Actions
+ * 
+ * Nov 4, 2022
+ * Set-up Postgres with docker
+ * Change spring version to support MongoDB
+ * Set-up mongoDB in compose
  */
