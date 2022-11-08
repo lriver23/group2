@@ -29,4 +29,12 @@ package edu.depaul.cdm.se452.group2.OrderPlacement;
  * 10/24/2022
  * I added Services for both Carts and Orders and added OnetoOne, JoinCloumn
  * feature.
+ *
+ *   ------------Milestone 4----------------
+ * 
+ *  11/08/2022
+ *  I added No Sequel Data Base for my OrderPlacement services and updated the Cart and Orders.java files with it
+ *
+ *
+ *
  */
