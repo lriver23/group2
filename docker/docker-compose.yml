@@ -1,0 +1,54 @@
+#Be sure to change volumn location
+#start:   docker-compose -f docker-sql.yml up -d
+#stop:    docker-compse -f docker-sql.yml down
+
+version: '3.8'
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    env_file: ./.env
+    volumes: 
+      - "$POSTGRES_EXTERNAL_LOC:/var/lib/postgresql/data"
+    restart: always
+    ports:
+      - $POSTGRES_PORT:$POSTGRES_PORT
+    environment:
+        POSTGRES_PASSWORD: $SQL_PASSWORD
+  mongo:
+    container_name: mongo
+    image: mongo
+    env_file: ./.env
+    volumes: 
+        - "$MONGO_EXTERNAL_LOC:/data/db"
+    restart: always
+    ports:
+        - $MONGO_PORT:$MONGO_PORT
+  redis:
+    container_name: redis
+    image: "redis:alpine"
+    command: redis-server
+    ports:
+     - "$REDIS_PORT:$REDIS_PORT"
+    volumes:
+      - $REDIS_EXTERNAL_LOC:/data
+  app:
+    depends_on: 
+      - mongo
+    container_name: app
+    image: shoebsmk/group2application
+    env_file: ./.env
+    ports:
+        - "$SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT"    
+    environment:
+      SPRING_APPLICATION_JSON: '{
+          "spring.data.mongodb.host"  : "mongo",
+          "spring.datasource.port" : "$MONGO_PORT"
+        }'
+
+# SPRING_APPLICATION_JSON: '{
+#     "spring.datasource.url"  : "jdbc:postgresql://postgresql:$POSTGRES_PORT/$SQL_DB",
+#     "spring.datasource.username" : "$SQL_USER",
+#     "spring.datasource.password" : "$SQL_PASSWORD",
+#     "spring.jpa.hibernate.ddl-auto" : "update"
+#   }'

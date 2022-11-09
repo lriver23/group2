@@ -1,9 +1,16 @@
 environment: production
 
 logging:
-    level:
-        root: ERROR
+  level:
+    root: INFO
 
 spring:
-    datasource:
-        url: jdbc:h2:mem:group2prod
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    defer-datasource-initialization: true
+  datasource:
+    url: jdbc:postgresql://localhost:5431/se452db
+    username: postgres
+    password: password
+    data: classpath:/data.sql

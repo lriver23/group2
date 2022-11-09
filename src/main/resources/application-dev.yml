@@ -9,3 +9,21 @@ spring:
         generate-ddl: true
         show-sql: true
         defer-datasource-initialization: true
+        hibernate:
+            ddl-auto: create-drop
+    datasource:
+        url: jdbc:h2:mem:dev
+        data: classpath:/data.sql
+    security:
+        user:
+            name: admin
+            password: adminPassword
+    data:
+        #Default mongoDB host and port
+        mongodb:
+            host: "localhost"
+            port: 27017
+        #Default redis host and port    
+        redis:
+            host: localhost
+            port: 6379
