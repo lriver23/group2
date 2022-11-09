@@ -1,12 +1,14 @@
 package edu.depaul.cdm.se452.group2.OrderPlacement.nonrelational.repos;
 
+import edu.depaul.cdm.se452.group2.OrderPlacement.entities.Cart;
 import edu.depaul.cdm.se452.group2.OrderPlacement.nonrelational.NoCart;
 
 import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface NoCartRepo extends MongoRepository<NoCart,Long> {
+public interface NoCartRepo extends MongoRepository<NoCart, Long> {
 
-  
+    void save(Cart row1);
+
 }

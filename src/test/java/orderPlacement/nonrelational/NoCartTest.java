@@ -1,0 +1,28 @@
+package orderPlacement.nonrelational;
+
+import org.junit.jupiter.api.Test;
+//import lombok.val;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import edu.depaul.cdm.se452.group2.OrderPlacement.entities.Cart;
+import edu.depaul.cdm.se452.group2.OrderPlacement.nonrelational.repos.NoCartRepo;
+import edu.depaul.cdm.se452.group2.OrderPlacement.repos.CartRepository;
+
+@SpringBootTest
+public class NoCartTest {
+    @Autowired
+    private NoCartRepo CartRepo;
+
+    @Test
+    public void testCart() {
+        var row1 = new Cart(10, 7, 98);
+        var row2 = new Cart(20, 8, 100);
+        var before = CartRepo.count();
+        CartRepo.save(row1);
+        CartRepo.save(row2);
+        var after = CartRepo.count();
+        assertEquals(before + 2, after);
+    }
+}
